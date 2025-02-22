@@ -14,7 +14,7 @@ api = fastapi.FastAPI(
 
 origins = ["*"]
 
-with open("hostIP.txt", "r+") as f:
+with open("hostIPs.txt", "r+") as f:
     for el in f:
         origins.append("http://" + el.rstrip("\n") + ":50891/")
         origins.append("http://" + el.rstrip("\n") + ":50891")
@@ -29,6 +29,10 @@ api.add_middleware(
 
 @api.get("/")
 def root():
+    return {"code": 200}
+
+@api.post("/encounter")
+def createEncounter(uid, animal, animalType, location, time, extra, token):
     return {"code": 200}
 
 
