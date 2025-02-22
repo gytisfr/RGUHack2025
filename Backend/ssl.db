@@ -1,0 +1,93 @@
+--- 
+files: 
+  certificate: 
+    rguhacknature_co_uk_a42dc_5b069_1771780343_1c505b0e87ee2b6fbc9d8aa3593b7416: 
+      created: '1740244344'
+      domains: 
+        - rguhacknature.co.uk
+        - mail.rguhacknature.co.uk
+        - www.rguhacknature.co.uk
+        - cpanel.rguhacknature.co.uk
+        - webmail.rguhacknature.co.uk
+        - webdisk.rguhacknature.co.uk
+        - cpcontacts.rguhacknature.co.uk
+        - cpcalendars.rguhacknature.co.uk
+      ecdsa_curve_name: ~
+      ecdsa_public: ~
+      friendly_name: Cert for “rguhacknature.co.uk”
+      id: rguhacknature_co_uk_a42dc_5b069_1771780343_1c505b0e87ee2b6fbc9d8aa3593b7416
+      is_self_signed: 1
+      issuer.commonName: rguhacknature.co.uk
+      issuer.organizationName: ~
+      key_algorithm: rsaEncryption
+      modulus: a42dc47bf50fa4d8f576ccc50f7caaf0ebca54ada4d19b8864fb28f32023c0a14d5fa269d66db0dba2e09800057c911a8940ef5ec5a7b95dec85a06931e96221207ca26e5cdbee7167f4f81cf61eb5fdbe0e05f662dee7b5b78d8b9da9e190769cf2af33569c97bbf54bf6499f4eb4f487bfb8c26ea7e8c9d92b4fbc7bd7331a0168a46201dd618a01e75d158711790d1b4f4eb39ff1561556a6321c4974861e02744fefd384567c685268a2b266b9cd348cbea450332d04b34b3af4d76cf4e7c93c90db0626cc1f0b015c2cfa9cd1966a3e714fd7de360d825aa20568918ae095db31e422df5ec12c4d4c7c03831232338ad1167029fada311b399a62a5b069
+      modulus_length: 2048
+      not_after: '1771780343'
+      not_before: '1740244343'
+      serial: 024929f238
+      signature_algorithm: sha256WithRSAEncryption
+      subject.commonName: rguhacknature.co.uk
+      validation_type: ~
+    rguhacknature_co_uk_b1849_b39a3_1748016888_89d38d8be21e1f110309344defc13315: 
+      created: '1740244399'
+      domains: 
+        - "*.rguhacknature.co.uk"
+        - rguhacknature.co.uk
+      ecdsa_curve_name: ~
+      ecdsa_public: ~
+      friendly_name: Cert for “rguhacknature.co.uk” 1740244399.0
+      id: rguhacknature_co_uk_b1849_b39a3_1748016888_89d38d8be21e1f110309344defc13315
+      is_self_signed: 0
+      issuer.commonName: R10
+      issuer.organizationName: Let's Encrypt
+      key_algorithm: rsaEncryption
+      modulus: b18493d674ee7ff650106fb3cf1c82ace6b02ddc4075505c70dc79a2f7704b4ea22807a951050958d1e0190736738a35fe8e0c71e1d1aaa260f6a110a1dbbaaebbb2c9425ded9dd588a5d8fac39ff9ebcd12ce30a6771d071903ed8dabd0a6646913562645b6d272918e5ab6daf7d848c206dba65bf247ffe5a06ac7730474bfb9022a87cf7aa25216d3d60cda4ad32ecd34112b81f0715236f0f3a7330c380d3f40d0bbb48137f9071ab08a91c077c9912b9a41297b1ec846542b94c5d336af95a20b88a6ef9e4c4816fbd721b200e9365dd6ccfe372ead03fc87128a998c1d5bfe90e59bdd877d3e0910bc59310968842cd856497c04780932858802db39a3
+      modulus_length: 2048
+      not_after: '1748016888'
+      not_before: '1740240889'
+      serial: 034203b29705943ca17193dcbf4f80fcf3bc
+      signature_algorithm: sha256WithRSAEncryption
+      subject.commonName: rguhacknature.co.uk
+      validation_type: dv
+  key: 
+    a42dc_5b069_348ae58fd20e3412818360992512b955: 
+      created: '1740244344'
+      ecdsa_curve_name: ~
+      ecdsa_public: ~
+      friendly_name: Key for “rguhacknature.co.uk”
+      id: a42dc_5b069_348ae58fd20e3412818360992512b955
+      key_algorithm: rsaEncryption
+      modulus: a42dc47bf50fa4d8f576ccc50f7caaf0ebca54ada4d19b8864fb28f32023c0a14d5fa269d66db0dba2e09800057c911a8940ef5ec5a7b95dec85a06931e96221207ca26e5cdbee7167f4f81cf61eb5fdbe0e05f662dee7b5b78d8b9da9e190769cf2af33569c97bbf54bf6499f4eb4f487bfb8c26ea7e8c9d92b4fbc7bd7331a0168a46201dd618a01e75d158711790d1b4f4eb39ff1561556a6321c4974861e02744fefd384567c685268a2b266b9cd348cbea450332d04b34b3af4d76cf4e7c93c90db0626cc1f0b015c2cfa9cd1966a3e714fd7de360d825aa20568918ae095db31e422df5ec12c4d4c7c03831232338ad1167029fada311b399a62a5b069
+      modulus_length: 2048
+    b1849_b39a3_9e35542cd39d07c52097a79ab82257cb: 
+      created: '1740244399'
+      ecdsa_curve_name: ~
+      ecdsa_public: ~
+      friendly_name: Key for “rguhacknature.co.uk” 1740244399.0
+      id: b1849_b39a3_9e35542cd39d07c52097a79ab82257cb
+      key_algorithm: rsaEncryption
+      modulus: b18493d674ee7ff650106fb3cf1c82ace6b02ddc4075505c70dc79a2f7704b4ea22807a951050958d1e0190736738a35fe8e0c71e1d1aaa260f6a110a1dbbaaebbb2c9425ded9dd588a5d8fac39ff9ebcd12ce30a6771d071903ed8dabd0a6646913562645b6d272918e5ab6daf7d848c206dba65bf247ffe5a06ac7730474bfb9022a87cf7aa25216d3d60cda4ad32ecd34112b81f0715236f0f3a7330c380d3f40d0bbb48137f9071ab08a91c077c9912b9a41297b1ec846542b94c5d336af95a20b88a6ef9e4c4816fbd721b200e9365dd6ccfe372ead03fc87128a998c1d5bfe90e59bdd877d3e0910bc59310968842cd856497c04780932858802db39a3
+      modulus_length: 2048
+indexes: 
+  certificate: 
+    modulus: 
+      a42dc47bf50fa4d8f576ccc50f7caaf0ebca54ada4d19b8864fb28f32023c0a14d5fa269d66db0dba2e09800057c911a8940ef5ec5a7b95dec85a06931e96221207ca26e5cdbee7167f4f81cf61eb5fdbe0e05f662dee7b5b78d8b9da9e190769cf2af33569c97bbf54bf6499f4eb4f487bfb8c26ea7e8c9d92b4fbc7bd7331a0168a46201dd618a01e75d158711790d1b4f4eb39ff1561556a6321c4974861e02744fefd384567c685268a2b266b9cd348cbea450332d04b34b3af4d76cf4e7c93c90db0626cc1f0b015c2cfa9cd1966a3e714fd7de360d825aa20568918ae095db31e422df5ec12c4d4c7c03831232338ad1167029fada311b399a62a5b069: 
+        rguhacknature_co_uk_a42dc_5b069_1771780343_1c505b0e87ee2b6fbc9d8aa3593b7416: ~
+      b18493d674ee7ff650106fb3cf1c82ace6b02ddc4075505c70dc79a2f7704b4ea22807a951050958d1e0190736738a35fe8e0c71e1d1aaa260f6a110a1dbbaaebbb2c9425ded9dd588a5d8fac39ff9ebcd12ce30a6771d071903ed8dabd0a6646913562645b6d272918e5ab6daf7d848c206dba65bf247ffe5a06ac7730474bfb9022a87cf7aa25216d3d60cda4ad32ecd34112b81f0715236f0f3a7330c380d3f40d0bbb48137f9071ab08a91c077c9912b9a41297b1ec846542b94c5d336af95a20b88a6ef9e4c4816fbd721b200e9365dd6ccfe372ead03fc87128a998c1d5bfe90e59bdd877d3e0910bc59310968842cd856497c04780932858802db39a3: 
+        rguhacknature_co_uk_b1849_b39a3_1748016888_89d38d8be21e1f110309344defc13315: ~
+    subject.commonName: 
+      rguhacknature.co.uk: 
+        rguhacknature_co_uk_a42dc_5b069_1771780343_1c505b0e87ee2b6fbc9d8aa3593b7416: ~
+        rguhacknature_co_uk_b1849_b39a3_1748016888_89d38d8be21e1f110309344defc13315: ~
+uniques: 
+  certificate: 
+    friendly_name: 
+      Cert for “rguhacknature.co.uk”: rguhacknature_co_uk_a42dc_5b069_1771780343_1c505b0e87ee2b6fbc9d8aa3593b7416
+      Cert for “rguhacknature.co.uk” 1740244399.0: rguhacknature_co_uk_b1849_b39a3_1748016888_89d38d8be21e1f110309344defc13315
+  key: 
+    friendly_name: 
+      Key for “rguhacknature.co.uk”: a42dc_5b069_348ae58fd20e3412818360992512b955
+      Key for “rguhacknature.co.uk” 1740244399.0: b1849_b39a3_9e35542cd39d07c52097a79ab82257cb
+    modulus:ecdsa_curve_name:ecdsa_public: 
+      a42dc47bf50fa4d8f576ccc50f7caaf0ebca54ada4d19b8864fb28f32023c0a14d5fa269d66db0dba2e09800057c911a8940ef5ec5a7b95dec85a06931e96221207ca26e5cdbee7167f4f81cf61eb5fdbe0e05f662dee7b5b78d8b9da9e190769cf2af33569c97bbf54bf6499f4eb4f487bfb8c26ea7e8c9d92b4fbc7bd7331a0168a46201dd618a01e75d158711790d1b4f4eb39ff1561556a6321c4974861e02744fefd384567c685268a2b266b9cd348cbea450332d04b34b3af4d76cf4e7c93c90db0626cc1f0b015c2cfa9cd1966a3e714fd7de360d825aa20568918ae095db31e422df5ec12c4d4c7c03831232338ad1167029fada311b399a62a5b069: a42dc_5b069_348ae58fd20e3412818360992512b955
+      b18493d674ee7ff650106fb3cf1c82ace6b02ddc4075505c70dc79a2f7704b4ea22807a951050958d1e0190736738a35fe8e0c71e1d1aaa260f6a110a1dbbaaebbb2c9425ded9dd588a5d8fac39ff9ebcd12ce30a6771d071903ed8dabd0a6646913562645b6d272918e5ab6daf7d848c206dba65bf247ffe5a06ac7730474bfb9022a87cf7aa25216d3d60cda4ad32ecd34112b81f0715236f0f3a7330c380d3f40d0bbb48137f9071ab08a91c077c9912b9a41297b1ec846542b94c5d336af95a20b88a6ef9e4c4816fbd721b200e9365dd6ccfe372ead03fc87128a998c1d5bfe90e59bdd877d3e0910bc59310968842cd856497c04780932858802db39a3: b1849_b39a3_9e35542cd39d07c52097a79ab82257cb

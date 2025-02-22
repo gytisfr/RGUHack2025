@@ -1,8 +1,6 @@
-import fastapi, typing, os
+import fastapi, typing
 from fastapi.middleware.cors import CORSMiddleware
 import dbint, structs
-
-os.chdir("\\".join(__file__.split("\\")[:-1]))
 
 api = fastapi.FastAPI(
     title = "Nature",
@@ -38,12 +36,17 @@ class users:
 
 class encounters:
     @api.post("/encounter")
-    def createEncounter(uniqueID : int, animal : str, animalType : str, longitude : float, latitude : float, time : int, verified : bool, extra : str = None): #token/authentication
+    def createEncounter(animal : str, animalType : str, longitude : float, latitude : float, time : int, verified : bool, extra : str = None): #token/authentication
         token = 1
-        dbint.insert(uniqueID, animal, animalType, longitude, latitude, time, verified, token, extra)
+        dbint.encounter.insert(animal, animalType, longitude, latitude, time, verified, token, extra)
+
+    @api.get("/encounter")
+    def getEncounter(uniqueID : str):
+        encounter = dbint.encounter.get(uniqueID)
+        return encounter
 
 import uvicorn
-uvicorn.run(api, port=50892, host="0.0.0.0")
+uvicorn.run(api, port=8179, host="0.0.0.0", ssl_keyfile="key.pem", ssl_certfile="cert.pem")
 """
 Status Codes
 200 - OK
