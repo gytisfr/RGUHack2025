@@ -76,7 +76,7 @@ class encounters:
         connection = sqlite3.connect("db.sqlite3")
         cursor = connection.cursor()
 
-        encounters = cursor.execute(f"select * from encounters order by time desc limit 10").fetchall()
+        encounters = cursor.execute(f"select * from encounters order by time desc limit 20").fetchall()
 
         encounters = [list(encounter) for encounter in encounters]
 
