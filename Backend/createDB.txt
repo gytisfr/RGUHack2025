@@ -1,6 +1,10 @@
 CREATE TABLE encounter(
     uid str primary key,
+    animal str not null,
+    animaltype str not null,
+    userid str not null,
     location str not null,
     time int not null,
-    extra str
+    extra str,
+    verified bool not null
 );
