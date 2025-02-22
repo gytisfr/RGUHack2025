@@ -1,0 +1,6 @@
+CREATE TABLE encounter(
+    uid str primary key,
+    location str not null,
+    time int not null,
+    extra str
+);
