@@ -45,6 +45,11 @@ class encounters:
         encounter = dbint.encounter.get(uniqueID)
         return encounter
 
+    @api.get("/encounter/fetch")
+    def fetchEncounters():
+        encounters = dbint.encounter.fetch()
+        return encounters
+
 import uvicorn
 uvicorn.run(api, port=8179, host="0.0.0.0", ssl_keyfile="key.pem", ssl_certfile="cert.pem")
 """
