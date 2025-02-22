@@ -63,7 +63,7 @@ class encounters:
 
         uniqueID = encode(uniqueID)
 
-        encounter = cursor.execute(f"select * from encounters where uniqueID = '{uniqueID}'").fetchall()[0]
+        encounter = list(cursor.execute(f"select * from encounters where uniqueID = '{uniqueID}'").fetchall()[0])
 
         encounter[0] = decode(encounter[0])
 
