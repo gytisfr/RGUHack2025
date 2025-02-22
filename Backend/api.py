@@ -1,4 +1,4 @@
-import fastapi, os
+import fastapi, typing, os
 from fastapi.middleware.cors import CORSMiddleware
 import dbint, structs
 
@@ -31,11 +31,16 @@ api.add_middleware(
 def root():
     return {"code": 200}
 
-@api.post("/encounter")
-def createEncounter(uid, animal, animalType, location, time, extra, token):
-    return {"code": 200}
+class users:
+    @api.post("/user")
+    def createUser(email, username, password):
+        pass
 
-
+class encounters:
+    @api.post("/encounter")
+    def createEncounter(uniqueID : int, animal : str, animalType : str, longitude : float, latitude : float, time : int, verified : bool, extra : str = None): #token/authentication
+        token = 1
+        dbint.insert(uniqueID, animal, animalType, longitude, latitude, time, verified, token, extra)
 
 import uvicorn
 uvicorn.run(api, port=50892, host="0.0.0.0")

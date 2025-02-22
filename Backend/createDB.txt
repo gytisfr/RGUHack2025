@@ -1,3 +1,10 @@
+CREATE TABLE users(
+    email str primary key,
+    username str not null,
+    password str not null,
+    token str
+);
+
 CREATE TABLE encounter(
     uniqueID str primary key,
     animal str not null,
