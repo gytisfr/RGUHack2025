@@ -1,10 +1,11 @@
 class encounter:
     def __init__(self, data : list):
-        self.uid = data[0]
+        self.uniqueID = data[0]
         self.animal = data[1] 
-        self.animaltype = data[2]
-        self.userid = data[3]
-        self.location = data[4]
+        self.animalType = data[2]
+        self.longitude = data[3]
+        self.latitude = data[4]
         self.time = data[5]
-        self.extra = data[6]
+        self.userID = data[6]
         self.verified =  data[7]
+        self.extra = data[8]
