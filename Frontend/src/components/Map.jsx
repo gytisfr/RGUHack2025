@@ -15,7 +15,7 @@ export const Map = () => {
     //     lng: -2.4
     // }
 
-    const locations = [mockData.position]
+    //const locations = [mockData.position]
 
     return (
         <div className="page-element-right">

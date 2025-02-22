@@ -3,7 +3,7 @@ import { SightingElement } from "./SightingElement";
 import Select from "react-select";
 import { useAppContext } from "../App";
 
-export const RecentSightings = () => {
+export const RecentSightings = (props) => {
     const { mockData } = useAppContext();
     const [selectedType, setSelectedType] = useState(null);
 
@@ -12,7 +12,7 @@ export const RecentSightings = () => {
         { value: "dog", label: "Dog" },
         { value: "cat", label: "Cat" },
         { value: "bird", label: "Bird" },
-        { value: "mammal", label: "Mammel" },
+        { value: "mammal", label: "Mammal" },
         { value: "reptile", label: "Reptile" },
         { value: "arachnid", label: "Arachnid" },
         { value: "amphibian", label: "Amphibian"},
@@ -27,7 +27,7 @@ export const RecentSightings = () => {
     };
 
     const filteredData = selectedType && selectedType !== "all"
-        ? mockData.filter(item => item.type === selectedType)
+        ? mockData?.filter(item => item.type === selectedType)
         : mockData;
 
     return (
@@ -44,7 +44,7 @@ export const RecentSightings = () => {
 
             <div className="sighting-scroll">
             {
-                filteredData.map((item, key) => (
+                filteredData?.map((item, key) => (
                     <SightingElement
                         key={key}
                         position={item.position}
@@ -55,7 +55,10 @@ export const RecentSightings = () => {
             }
             </div>
 
-            <button className="add-siting-btn" ><img src="../src/assets/Plus.png"></img>Add sighting</button>
+            <button className="add-siting-btn" onClick={() => props.setModalOpen(!props.modalOpen)}>
+                <img src="../src/assets/Plus.png" alt="Add" />
+                Add sighting
+            </button>
         </div>
     );
 };

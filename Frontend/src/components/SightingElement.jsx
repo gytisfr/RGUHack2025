@@ -10,10 +10,11 @@ export const SightingElement = (props) => {
         const fetchLocationName = async () => {
             const apiKey = "AIzaSyD9S8S3cGUXpuHOmswjzvTbM5CoZqTh7L0";
             const url = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${props.position.lat},${props.position.lng}&key=${apiKey}`;
+            console.log(props.position)
 
             try {
                 const response = await axios.get(url);
-                //console.log('API response:', response.data);
+                console.log('API response:', response.data); 
                 const results = response.data.results;
                 if (results.length > 0) {
                     setLocationName(results[2]['address_components'][1]['long_name']);
