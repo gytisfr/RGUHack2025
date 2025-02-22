@@ -67,7 +67,7 @@ class encounters:
 
         encounter[0] = decode(encounter[0])
 
-        return encounter
+        return dict(zip(["uniqueID", "animal", "animalType", "longitude", "latitude", "time", "userID", "verified", "extra"], encounter))
 
     def check():
         pass
