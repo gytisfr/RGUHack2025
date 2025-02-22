@@ -1,9 +1,4 @@
-CREATE TABLE users(
-    email str primary key,
-    username str not null,
-    password str not null,
-    token str
-);
+16
 
 CREATE TABLE encounter(
     uniqueID str primary key,
@@ -12,7 +7,7 @@ CREATE TABLE encounter(
     longitude float not null,
     latitude float not null,
     time int not null,
-    userID int not null,
+    userID str not null,
     verified bool not null,
     extra str,
 );
