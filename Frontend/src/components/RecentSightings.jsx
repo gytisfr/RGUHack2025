@@ -2,6 +2,7 @@ import { useState } from "react";
 import { SightingElement } from "./SightingElement";
 import Select from "react-select";
 import { useAppContext } from "../App";
+import { Link } from "react-router-dom";
 
 export const RecentSightings = (props) => {
     const { mockData } = useAppContext();
@@ -45,12 +46,13 @@ export const RecentSightings = (props) => {
             <div className="sighting-scroll">
             {
                 filteredData?.map((item, key) => (
+                    <Link to={`/sighting/${item.uniqueID}`} key={key} style={{color: "black", textDecoration: "none"}}>
                     <SightingElement
-                        key={key}
                         position={item.position}
                         animal={item.animal}
                         type={item.type}
                     />
+                    </Link>
                 ))
             }
             </div>

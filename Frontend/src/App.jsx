@@ -4,6 +4,7 @@ import { Navbar } from './components/Navbar';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Home } from './pages/home';
 import { About } from './pages/About';
+import { IndividualSighting } from './components/IndividualSighting';
 import axios from "axios";
 
 const AppContext = createContext();
@@ -16,7 +17,7 @@ function App() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://192.168.8.171:50892/encounter/fetch");
+        const response = await axios.get("https://api.rguhacknature.co.uk/encounter/fetch");
         const formattedData = response.data.map(item => ({
           ...item,
           position: {
@@ -24,6 +25,7 @@ function App() {
             lng: item.lng
           }
         }));
+        console.log(formattedData)
         setMockData(formattedData);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -40,6 +42,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/about' element={<About />} />
+          <Route path='/sighting/:id' element={<IndividualSighting />} />
           <Route path='*' element={<h1>404, Page not found!</h1>} />
         </Routes>
       </Router>

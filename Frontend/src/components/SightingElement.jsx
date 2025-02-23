@@ -2,6 +2,20 @@ import { useEffect, useState } from "react";
 import { useAppContext } from "../App";
 import axios from "axios";
 
+const typeToImageMap = {
+    dog: "../src/assets/dog.png",
+    cat: "../src/assets/cat.png",
+    bird: "../src/assets/bird.png",
+    mammal: "../src/assets/mammal.png",
+    reptile: "../src/assets/reptile.png",
+    arachnid: "../src/assets/arachnid.png",
+    amphibian: "../src/assets/amphibian.png",
+    mollusk: "../src/assets/mollusk.png",
+    echinoderm: "../src/assets/echinoderm.png",
+    insect: "../src/assets/insect.png",
+    cnidarian: "../src/assets/cnidarian.png"
+};
+
 export const SightingElement = (props) => {
     const { setMapLocation } = useAppContext();
     const [locationName, setLocationName] = useState("... Loading");
@@ -32,7 +46,7 @@ export const SightingElement = (props) => {
 
     return (
         <div className="sighting-element" onMouseEnter={() => { setMapLocation(props.position) }}>
-            <img src="../src/assets/bird.png" alt="Bird" />
+            <img src={typeToImageMap[props.type]} alt={props.type} />
             <div>
                 <h3>Location</h3>
                 <p>{locationName}</p>
