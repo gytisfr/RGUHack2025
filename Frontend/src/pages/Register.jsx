@@ -1,29 +1,35 @@
 import { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 export const Register = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
+    const navigate = useNavigate();
 
-    const handleLogin = async () => {
+    const handleRegister = async () => {
         try {
             const response = await axios.post(`https://api.rguhacknature.co.uk/user?username=${username}&password=${password}`, {
                 username,
                 password
             });
-            console.log("Login successful:", response.data);
-            // Handle successful login (e.g., redirect to another page, store token, etc.)
+            console.log("Registration successful:", response.data);
+
+            if (response.status === 200) {
+                // Redirect to login page after successful registration
+                navigate('/login');
+            }
         } catch (error) {
-            console.error("Error logging in:", error);
-            setError("Invalid username or password");
+            console.error("Error registering:", error);
+            setError("Registration failed");
         }
     };
 
     return (
         <div className="page">
             <div className="login-container">
-                <div className="login-left">
+                <div className="login-left" style={{backgroundColor: "green"}}>
                     <div style={{ display: "flex", alignItems: "center" }}>
                         <h1 style={{ margin: 0, textAlign: "start" }}>NATURE APP</h1>
                         <img src="../src/assets/arrow.png" style={{ marginLeft: "2em" }} alt="Arrow" />
@@ -46,7 +52,7 @@ export const Register = () => {
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                     />
-                    <button style={{ marginLeft: "auto" }} onClick={handleLogin}>Login</button>
+                    <button style={{ marginLeft: "auto", backgroundColor: "green" }} onClick={handleRegister}>Register</button>
                 </div>
             </div>
         </div>

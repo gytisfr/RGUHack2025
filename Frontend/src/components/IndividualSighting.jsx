@@ -3,6 +3,7 @@ import { useAppContext } from "../App";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Cookies from "js-cookie";
+import { UpdatePostModal } from "./UpdatePostModal";
 
 const typeToImageMap = {
     dog: "../src/assets/big/dog.png",
@@ -21,8 +22,9 @@ const typeToImageMap = {
 export const IndividualSighting = () => {
     const { id } = useParams();
     const navigate = useNavigate();
-    const { mockData } = useAppContext();
+    const { mockData, updateMockData } = useAppContext();
     const [locationName, setLocationName] = useState("... Loading");
+    const [isModalOpen, setModalOpen] = useState(false);
 
     const sighting = mockData.find(item => item.uniqueID === id);
 
@@ -55,6 +57,8 @@ export const IndividualSighting = () => {
         try {
             const response = await axios.delete(`https://api.rguhacknature.co.uk/encounter?uniqueID=${sighting.uniqueID}&token=${token}`);
             console.log("Post deleted:", response.data);
+            // Update the mockData state to remove the deleted sighting
+            updateMockData(mockData.filter(item => item.uniqueID !== id));
             navigate('/'); // Redirect to home page after deletion
         } catch (error) {
             console.error("Error deleting post:", error);
@@ -109,9 +113,16 @@ export const IndividualSighting = () => {
                     <h3 style={{marginTop: "1em"}}>Delete Post</h3>
                     <button onClick={handleDelete}>Delete</button>
                     <h3 style={{marginTop: "1em"}}>Update Post</h3>
-                    <button style={{backgroundColor: "orange"}}>Update</button>
+                    <button style={{backgroundColor: "orange"}} onClick={() => setModalOpen(true)}>Update</button>
                 </div>
             </div>
+            {isModalOpen && (
+                <UpdatePostModal
+                    setModalOpen={setModalOpen}
+                    sighting={sighting}
+                    updateMockData={updateMockData}
+                />
+            )}
         </div>
     );
 };

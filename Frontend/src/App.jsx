@@ -7,6 +7,7 @@ import { IndividualSighting } from './components/IndividualSighting';
 import axios from "axios";
 import { Login } from './pages/Login';
 import { Register } from "./pages/Register";
+import { Modal } from "./components/Modal";
 import Cookies from "js-cookie";
 
 const AppContext = createContext();
@@ -16,6 +17,7 @@ function App() {
   const [mapLocation, setMapLocation] = useState({ lat: 57.17, lng: -2.2 });
   const [mockData, setMockData] = useState([]);
   const [loggedUser, setLoggedUser] = useState(Cookies.get("username") || null);
+  const [isModalOpen, setModalOpen] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -53,6 +55,12 @@ function App() {
           <Route path='/register' element={<Register />} />
           <Route path='*' element={<h1>404, Page not found!</h1>} />
         </Routes>
+        {isModalOpen && (
+          <Modal
+            setModalOpen={setModalOpen}
+            updateMockData={updateMockData}
+          />
+        )}
       </Router>
     </AppContext.Provider>
   );
