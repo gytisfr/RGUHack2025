@@ -50,7 +50,7 @@ INSERT INTO encounters VALUES
 ('j0q4%2D766n', 'jaguar', 'cat', -0.793912, 54.093299, 2000, 'gytisfr', 1, 'Stalking prey in the Brazilian jungle'),
 ('xp3e%2Dy5zo', 'chameleon', 'reptile', -1.438797, 51.085714, 1905, 'gytisfr', 0, 'Changing colors in Madagascar'),
 ('oug4%2Dm7fb', 'armadillo', 'mammal',-3.351694, 55.373188, 2100, 'gytisfr', 1, 'Digging in Texas'),
-('oe1m%2Dq0qs', 'tarantula', 'arachnid', 54.966747, -3.502051, 2030, 'gytisfr', 1, 'Crawling in the Panama rainforest'),
+('oe1m%2Dq0qs', 'tarantula', 'arachnid', -3.502051, 54.966747,  2030, 'gytisfr', 1, 'Crawling in the Panama rainforest'),
 ('y8wb%2Dluqw', 'bat', 'mammal', -2.181589,57.136973, 2345, 'gytisfr', 0, 'Flying near Las Vegas caves'),
 ('1o6i%2Damkv', 'peacock', 'bird', 28.7041, 77.1025, 1610, 'gytisfr', 1, 'Displaying feathers in India'),
 ('7y6f%2D9g96', 'anteater', 'mammal', -15.7939, -47.8828, 1755, 'gytisfr', 1, 'Sniffing for ants in Brazil'),
