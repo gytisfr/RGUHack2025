@@ -1,14 +1,19 @@
+import jwt, datetime, os
 import dbint
-import os
 
 os.chdir("\\".join(__file__.split("\\")[:-1]))
 
-a = dbint.encounters.get("w68l-08s9")
+secret = "5a13f6c8-7927-40c8-8ff7-f29ba1935aa3"
+data = {"username": "gytisfr", "timestamp": datetime.datetime.now().timestamp()}
 
-print(a)
+print(data)
 
-a = dbint.encounters.fetch()
+encoded = jwt.encode(data, secret, algorithm="HS256")
 
-print(a)
+print(encoded)
+
+decoded = jwt.decode(encoded, secret, algorithms=["HS256"])
+
+print(decoded)
 
 input()

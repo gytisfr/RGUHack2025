@@ -1,9 +1,10 @@
-import structs
-import sqlite3, typing, random, os
+import sqlite3, bcrypt, typing, datetime, random, jwt, os
 
 os.chdir("\\".join(__file__.split("\\")[:-1]))
 
 chars = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
+
+secret = "5a13f6c8-7927-40c8-8ff7-f29ba1935aa3"
 
 def encode(text : typing.Union[int, list]):
     #"   %22
@@ -50,23 +51,83 @@ def validateToken(token : str):
     return details[0][0]
 
 class users:
-    def insert(email : str, username : str, password : str ):
-        pass
-
-    def get():
-        pass
-
-    def check():
-        pass
-
-    def modify():
-        pass
-
-    def remove(id : int):
+    def insert(email : str, username : str, password : str):
         connection = sqlite3.connect("db.sqlite3")
         cursor = connection.cursor()
 
-        cursor.execute(f"delete from users where id = {id}")
+        email, username = encode([email, username])
+
+        salt = bcrypt.gensalt()
+        hash = bcrypt.hashpw(password, salt)
+        hash = encode(hash)
+
+        try:
+            cursor.execute(f"insert into users values('{email}', '{username}', '{password}')")
+        except Exception as e:
+            return str(type(e)).removeprefix("<class '").removesuffix("'>") + ": " + str(e)
+
+        cursor.commit()
+    
+    def login(username : str, password : str):
+        connection = sqlite3.connect("db.sqlite3")
+        cursor = connection.cursor()
+
+        username = encode(username)
+
+        passwordHash = cursor.execute(f"select password from users where username = '{username}'").fetchall()
+
+        if not passwordHash:
+            return False
+
+        passwordHashDecoded = decode(passwordHash)
+        bcrypt.checkpw(password, passwordHashDecoded)
+
+        username = decode(username)
+
+        preToken = {"username": username, "timestamp": datetime.datetime.now().timestamp()}
+        token = jwt.encode(preToken, secret, algorithm="HS256")
+
+        return token
+    
+    def logout(token : str):
+        connection = sqlite3.connect("db.sqlite3")
+        cursor = connection.cursor()
+
+        token = encode(token)
+
+        cursor.execute(f"update user where token = '{token}' set token = ''")
+
+    def check(username : str):
+        connection = sqlite3.connect("db.sqlite3")
+        cursor = connection.cursor()
+
+        username = encode(username)
+
+        check = cursor.execute(f"select * from users where username = '{username}'").fetchall()
+        
+        return (check)
+
+    def modify(username : str, what : str, to : str):
+        connection = sqlite3.connect("db.sqlite3")
+        cursor = connection.cursor()
+
+        username, what, to = encode([username, what, to])
+
+        try:
+            cursor.execute(f"update users set {what} = '{to}' where username = '{username}'")
+        except Exception as e:
+            return str(type(e)).removeprefix("<class '").removesuffix("'>") + ": " + str(e)
+        
+        cursor.commit()
+
+    def remove(username : str):
+        connection = sqlite3.connect("db.sqlite3")
+        cursor = connection.cursor()
+
+        username = encode(username)
+
+        cursor.execute(f"delete from users where username = {username}")
+        cursor.commit()
 
 class encounters:
     def insert(animal : str, animalType : str, longitude : float, latitude : float, time : int, verified : bool, token : str, extra : str = None):
@@ -103,7 +164,7 @@ class encounters:
 
         encounter[0] = decode(encounter[0])
 
-        return dict(zip(["uniqueID", "animal", "type", "lng", "lat", "time", "userID", "verified", "extra"], encounter))
+        return dict(zip(["uniqueID", "animal", "type", "lng", "lat", "time", "username", "verified", "extra"], encounter))
 
     def check(uniqueID : str):
         connection = sqlite3.connect("db.sqlite3")
@@ -139,7 +200,7 @@ class encounters:
         for encounter in encounters:
             encounter[0] = decode(encounter[0])
 
-        return [dict(zip(["uniqueID", "animal", "type", "lng", "lat", "time", "userID", "verified", "extra"], encounter)) for encounter in encounters]
+        return [dict(zip(["uniqueID", "animal", "type", "lng", "lat", "time", "username", "verified", "extra"], encounter)) for encounter in encounters]
 
     def modify(uniqueID : str, what : str, to : typing.Union[str, int, float, bool]):
         connection = sqlite3.connect("db.sqlite3")
@@ -151,7 +212,7 @@ class encounters:
             to = encode(to)
         
         try:
-            encounters = cursor.execute(f"""update encounters set {what} = {"'" if type(to) == str else ""}{to}{"'" if type(to) == str else ""} where uniqueID = '{uniqueID}'""")
+            cursor.execute(f"""update encounters set {what} = {"'" if type(to) == str else ""}{to}{"'" if type(to) == str else ""} where uniqueID = '{uniqueID}'""")
         except Exception as e:
             return str(type(e)).removeprefix("<class '").removesuffix("'>") + ": " + str(e)
 

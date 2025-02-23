@@ -1,6 +1,6 @@
 import fastapi, typing, os
 from fastapi.middleware.cors import CORSMiddleware
-import dbint, structs
+import dbint
 
 os.chdir("\\".join(__file__.split("\\")[:-1]))
 

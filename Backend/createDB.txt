@@ -1,6 +1,6 @@
 CREATE TABLE users(
-    email str primary key,
-    username str not null unique,
+    username str primary key,
+    email str not null unique,
     password str not null,
     token str
 );
