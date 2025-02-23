@@ -2,8 +2,10 @@ import { RecentSightings } from "../components/RecentSightings"
 import { Map } from "../components/Map"
 import { useEffect, useState } from "react"
 import { Modal } from "../components/Modal"
+import useAuth from "../hooks/useAuth"
 
 export const Home = () => {
+    useAuth();
     const [modalOpen, setModalOpen] = useState(false);
     
     return (

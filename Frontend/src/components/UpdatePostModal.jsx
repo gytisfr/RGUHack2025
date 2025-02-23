@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import Cookies from "js-cookie";
 
-export const Modal = (props) => {
+export const UpdatePostModal = (props) => {
     const [animal, setAnimal] = useState("");
     const [type, setType] = useState("");
     const [position, setPosition] = useState({ lat: null, lng: null });

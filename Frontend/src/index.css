@@ -13,17 +13,19 @@ body {
   margin: 0;
   display: flex;
   place-items: center;
+  box-sizing: border-box;
 }
 
 .page {
   height: 100%;
   width: 100%;
+  box-sizing: border-box;
 }
 
 .nav {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
   padding: 0.5em 2em;
   background-color: #2b2b2b;
   color: white;
@@ -49,7 +51,7 @@ body {
 .home-container {
   display: flex;
   width: 100%;
-  height: 100%;
+  height: 96%;
   box-sizing: border-box;
 }
 
@@ -161,6 +163,7 @@ body {
 .modal-background {
   width: 100vw;
   height: 100vh;
+  top: 0;
   background-color: rgba(29, 29, 29, 0.854);
   position: fixed;
   display: flex;
@@ -169,13 +172,17 @@ body {
 }
 
 .modal-form {
-  width: 50%;
+  width: 30%;
   padding: 2em;
   background-color: white;
   box-shadow: 0px 0px 15px;
   display: flex;
   flex-direction: column;
   border-radius: 10px;
+}
+
+.modal-form select{
+    padding: 1em;
 }
 
 .modal-form button img{
@@ -194,6 +201,17 @@ body {
   cursor: pointer;
 }
 
+.modal-form {
+  text-align: left;
+}
+
+.modal-form input {
+  width: 100%;
+  padding: 1em;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
 .modal-form header {
   display: flex;
   align-items: center;
@@ -203,7 +221,7 @@ body {
 .individual-grid {
   display: grid;
   width: 100%;
-  height: 100%;
+  height: 96%;
   grid-template-columns: 1.5fr 1fr 1.5fr;
   padding: 2em;
   box-sizing: border-box;
@@ -308,4 +326,112 @@ body {
   border-radius: 8px;
   padding: 2em;
   box-sizing: border-box;
+}
+
+.login-container {
+  display: grid;
+  grid-template-columns: 3fr 1.5fr;
+  height: 100%;
+  width: 100%;
+}
+
+.login-left {
+  grid-column: 1;
+  height: 100%;
+  width: 100%;
+  background-color: #f8962e;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding: 2em 4em;
+  box-sizing: border-box;
+}
+
+.login-left h1{
+  margin: 0;
+  color: white;
+  font-size: 100px;
+}
+
+.login-right {
+  grid-column: 2;
+  height: 100%;
+  width: 100%;
+  background-color: white;
+  padding: 4em 2em;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+
+.login-right input {
+    width: 100%;
+    border: 1px solid black;
+    border-radius: 20px;
+    padding: 1.5em 1em;
+    box-sizing: border-box;
+    font-size: 15px;
+}
+
+.login-right h1 {
+  font-size: 40px;
+  margin: 0.5em 0;
+}
+
+.login-right p {
+  margin: 0.5em 0;
+  text-align: left;
+  font-size: 25px;
+}
+
+.login-right button{
+  border: 0;
+  padding: 1em 2em;
+  border-radius: 8px;
+  background-color: #f8962e;
+  font-size: 15px;
+  font-weight: 600;
+  color: white;
+  margin-top: 1em;
+  cursor: pointer;
+}
+
+.individual-sighting-graphs {
+  height: 100%;
+  width: 100%;
+  box-shadow: 0px 0px 10px #2b2b2b;
+  border-radius: 8px;
+  padding: 2em;
+  box-sizing: border-box;
+  grid-column: 3;
+  display: flex;
+  flex-direction: column;
+}
+.individual-sighting-graphs h1 {
+  text-align: left;
+  margin: 0;
+}
+
+.individual-sighting-graphs h3 {
+  text-align: left;
+  margin: 0;
+}
+
+.individual-sighting-graphs p {
+  text-align: left;
+  margin: 0;
+}
+
+.individual-sighting-graphs button{
+  margin-left: 0;
+  background-color: red;
+  border: 0;
+  padding: 1em;
+  border-radius: 8px;
+  color: white;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
 }
