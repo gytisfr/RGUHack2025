@@ -33,7 +33,23 @@ def root():
 
 class users:
     @api.post("/user")
-    def createUser(email, username, password):
+    def createUser(username : str, email : str, password : str):
+        pass
+
+    @api.post("/user/login")
+    def login(username : str, password : str):
+        pass
+
+    @api.post("/user/logout")
+    def logout(token : str):
+        pass
+
+    @api.patch("/user")
+    def updateUser(token : str):
+        pass
+
+    @api.delete("/user")
+    def removeUser(token : str):
         pass
 
 class encounters:
